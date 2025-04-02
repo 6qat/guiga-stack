@@ -4,9 +4,23 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@react-router/dev": "^7.4.1",
+    "@types/bun": "^1.2.8",
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.1",
+    "vite": "^6.2.4",
+    "vite-tsconfig-paths": "^5.1.4"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@react-router/node": "^7.4.1",
+    "@react-router/serve": "^7.4.1",
+    "isbot": "^5.1.25",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.4.1"
   }
 }
