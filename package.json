@@ -9,7 +9,9 @@
     "start": "cross-env NODE_ENV=production bun server.ts",
     "typecheck": "bunx --bun react-router typegen && tsc",
     "format": "bunx biome format --write",
-    "lint": "bunx biome lint"
+    "lint": "bunx biome lint",
+    "docker:build": "docker build -t ceschiatti/guiga-stack:latest . && docker image prune -f",
+    "docker:run": "docker run --rm -p 3000:3000 --name guiga-stack ceschiatti/guiga-stack"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

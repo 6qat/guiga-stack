@@ -1,5 +1,6 @@
 # docker build -t ceschiatti/guiga-stack:latest .
-# docker run --rm -p 3000:3000 ceschiatti/guiga-stack
+# docker run --rm -p 3000:3000 --name guiga-stack ceschiatti/guiga-stack
+# docker exec -it guiga-stack bash
 
 FROM oven/bun:latest AS development-dependencies-env
 COPY . /app
@@ -18,9 +19,9 @@ WORKDIR /app
 RUN bun run build
 
 FROM oven/bun:latest
-RUN bun install -g cross-env
 COPY ./package.json bun.lock server.ts /app/
 COPY --from=production-dependencies-env /app/node_modules /app/node_modules
 COPY --from=build-env /app/build /app/build
 WORKDIR /app
-CMD ["bun", "run", "start"]
+ENV NODE_ENV=production
+CMD ["bun", "server.ts"]
