@@ -1,4 +1,4 @@
-import type { Route } from "./+types/home"
+import type { Route } from "./+types/_index"
 
 export function loader() {
   return { name: "React Router" }

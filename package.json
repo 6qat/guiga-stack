@@ -25,6 +25,7 @@
     "typescript": "^5.8.2"
   },
   "dependencies": {
+    "@react-router/fs-routes": "^7.4.1",
     "@react-router/node": "^7.4.1",
     "@react-router/serve": "^7.4.1",
     "elysia": "^1.2.25",
