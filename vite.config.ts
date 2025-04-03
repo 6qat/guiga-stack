@@ -9,4 +9,12 @@ export default defineConfig({
 		},
 	},
 	plugins: [reactRouter(), tsconfigPaths()],
+	resolve:
+		process.env.NODE_ENV === "development"
+			? {}
+			: {
+					alias: {
+						"react-dom/server": "react-dom/server.node",
+					},
+				},
 });
