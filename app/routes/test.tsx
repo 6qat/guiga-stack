@@ -4,7 +4,7 @@ import { getHello } from "~/middleware/hello"
 
 export async function loader({ context }: Route.LoaderArgs) {
   console.log(getHello(context), " from server")
-  console.log("FROM SERVER")
+
   const locale = getLocale(context)
   const date = new Date().toLocaleDateString(locale, {
     year: "numeric",
@@ -17,7 +17,7 @@ export async function loader({ context }: Route.LoaderArgs) {
 
 export async function clientLoader({ context, serverLoader }: Route.ClientLoaderArgs) {
   console.log(getHello(context), " from client")
-  console.log("FROM CLIENT")
+
   const serverData = await serverLoader()
   return { ...serverData, fromServer: true }
 }
