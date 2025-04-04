@@ -3,7 +3,7 @@ import { getLocale, getInstance } from "~/middleware/i18next"
 import { getHello } from "~/middleware/hello"
 
 export async function loader({ context }: Route.LoaderArgs) {
-  // console.log(getHello(context))
+  // console.log(getHello(context), " from server")
   const locale = getLocale(context)
   const date = new Date().toLocaleDateString(locale, {
     year: "numeric",
@@ -15,9 +15,17 @@ export async function loader({ context }: Route.LoaderArgs) {
 }
 
 export async function clientLoader({ context, serverLoader }: Route.ClientLoaderArgs) {
-  console.log(getHello(context))
+  console.log(getHello(context), " from client")
+  console.log("FROM CLIENT")
   const serverData = await serverLoader()
   return { ...serverData, fromServer: true }
+}
+
+// force the client loader to run during hydration
+clientLoader.hydrate = true as const // `as const` for type inference
+
+export function HydrateFallback() {
+  return <div>Loading...</div>
 }
 
 export default function About({ loaderData }: Route.ComponentProps) {
