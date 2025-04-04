@@ -2,6 +2,9 @@ import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration }
 
 import type { Route } from "./+types/root"
 
+import { i18nextMiddleware } from "~/middleware/i18next"
+export const unstable_middleware = [i18nextMiddleware]
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">

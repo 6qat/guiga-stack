@@ -8,7 +8,8 @@ const port = Number(process.env.PORT) || 3000
 new Elysia()
   .use(
     await reactRouter({
-      getLoadContext: () => ({ hotPostName: "some post title" }),
+      // getLoadContext: () => ({ hotPostName: "some post title" }),
+      // const context = new unstable_RouterContextProvider();
     })
   )
 
