@@ -3,7 +3,10 @@ import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration }
 import type { Route } from "./+types/root"
 
 import { i18nextMiddleware } from "~/middleware/i18next"
-export const unstable_middleware = [i18nextMiddleware]
+import { helloMiddleware } from "~/middleware/hello"
+
+export const unstable_middleware = [i18nextMiddleware, helloMiddleware]
+export const unstable_clientMiddleware = [helloMiddleware]
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
