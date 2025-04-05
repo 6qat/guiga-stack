@@ -4,6 +4,8 @@ import { unstable_createContext } from "react-router"
 export type Guiga = { id: number }
 export const helloContext = unstable_createContext<Guiga>()
 
+// TODO: study the client version: unstableClientMiddlewareFunction
+// https://sergiodxa.com/tutorials/use-middleware-in-react-router
 export const helloMiddleware: unstable_MiddlewareFunction<Response> = async (
   { request, context },
   next
