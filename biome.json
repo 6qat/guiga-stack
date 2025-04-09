@@ -56,7 +56,7 @@
   },
   "javascript": {
     "formatter": {
-      "semicolons": "asNeeded",
+      "semicolons": "always",
       "trailingCommas": "es5"
     }
   }
