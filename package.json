@@ -20,7 +20,7 @@
     "@types/node": "^22.14.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.2",
-    "vite": "^6.2.5",
+    "vite": "^6.2.6",
     "vite-tsconfig-paths": "^5.1.4"
   },
   "peerDependencies": {
@@ -30,7 +30,7 @@
     "@react-router/fs-routes": "^7.5.0",
     "@react-router/node": "^7.5.0",
     "@react-router/serve": "^7.5.0",
-    "effect": "^3.14.7",
+    "effect": "^3.14.8",
     "elysia": "^1.2.25",
     "elysia-react-router": "^0.1.0",
     "i18next": "^24.2.3",

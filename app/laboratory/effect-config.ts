@@ -1,5 +1,7 @@
 import { Effect, Logger, LogLevel, Config } from "effect";
 
+// https://effect.website/docs/configuration/
+
 const task1 = Effect.gen(function* () {
   yield* Effect.sleep("2 seconds");
   yield* Effect.logDebug("task1 done"); // Log a debug message
