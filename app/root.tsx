@@ -1,15 +1,17 @@
 import {
+  data,
   isRouteErrorResponse,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "react-router";
 
 import type { Route } from "./+types/root";
 
-import { i18nextMiddleware } from "~/middleware/i18next";
+import { getInstance, i18nextMiddleware } from "~/middleware/i18next";
 import { helloMiddleware } from "~/middleware/hello";
 
 import "./app.css";
@@ -17,9 +19,15 @@ import "./app.css";
 export const unstable_middleware = [i18nextMiddleware, helloMiddleware];
 export const unstable_clientMiddleware = [helloMiddleware];
 
+export async function loader({ context }: Route.LoaderArgs) {
+  const i18n = getInstance(context);
+  return data({ language: i18n.language });
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { language } = useLoaderData();
   return (
-    <html lang="en">
+    <html lang={language}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
